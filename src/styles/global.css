@@ -1,0 +1,81 @@
+:root {
+    --font-body: 'Roboto Flex', sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; /* 1 rem = 10px */
+
+}
+
+body {
+    font-family: var(--font-body);
+    margin: 0;
+    background-color: rgb(29, 29, 36);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd,
+a {
+    margin: 0;
+    padding: 0;
+}
+a,
+a:visited,
+a:hover {
+  text-decoration: none;
+  color: black;
+}
+input,
+input:focus,
+textarea,
+textarea:focus,
+select,
+select:focus,
+button,
+label {
+  padding: 0;
+  margin: 0;
+  outline: none;
+  background: transparent;
+  border: none;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border-bottom: 3px solid rgb(0, 0, 0);
+  -webkit-text-fill-color: rgb(0, 0, 0);
+  box-shadow: 0 0 0px 1000px rgba(0, 0, 0, 0) inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+ul li {
+  list-style: none;
+  display: none;
+}

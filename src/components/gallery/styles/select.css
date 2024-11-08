@@ -1,0 +1,109 @@
+.select-box{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: 58px;
+  }
+  .select{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    padding: 0 8px;
+    width: 100%;
+    height: 58px;
+    background: #292929;
+    border: 0.8px solid #777777;
+    color: #767676;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    transition: all ease 0.5s;
+    -webkit-transition: all ease 0.5s;
+  }
+  .active,
+  .select:hover,
+  .select:focus{
+    background: #262731;
+    outline: 3px solid #fff;
+  }
+  .activeText
+  {
+    color: #4871bf;
+  }
+  .select-options{
+    position: absolute;
+    border-radius: 0 0 4px 4px;
+    max-height: 300px;
+    width: 100%;
+    height: min-content;
+    top: 100%;
+    background: #fff;
+    box-shadow: 2px 2px 9px rgba(0, 0, 0, 0.4);
+    z-index: 10;
+    overflow-y: scroll;
+  }
+  
+  .select-options::-webkit-scrollbar {
+    -webkit-appearance: none;
+  }
+  
+  .select-options::-webkit-scrollbar:vertical {
+    width: 5px;
+  }
+  
+  .select-options::-webkit-scrollbar-button:increment,
+  .select-options::-webkit-scrollbar-button {
+    display: none;
+  }
+  
+  .select-options::-webkit-scrollbar-thumb {
+    height: 75px !important;
+    background-color: #304b7f;
+    border-radius: 20px;
+    border: 6px solid #6097ff;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+  }
+  .option{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    font-size: 14px;
+    font-family: 'Poppins';
+    font-weight: 500;
+    color: #000;
+    padding: 0px 16px;
+    transition: all ease 0.5s;
+    -webkit-transition: all ease 0.5s;
+    -moz-transition: all ease 0.5s;
+    -ms-transition: all ease 0.5s;
+    -o-transition: all ease 0.5s;
+    cursor: pointer;
+  }
+  .option:hover{
+    background-color: #4871bf;
+  }
+  .option span{
+    display: flex;
+    justify-content: start;
+    color: #000;
+    text-decoration: none;
+    width: 100%;
+    padding: 8px 0;
+    
+  }
+  .option span:hover{
+    color: #fff;
+  }
+  .hide{
+    display: none;
+  }
+  .rotate{
+    transform: rotate(180deg);
+  }

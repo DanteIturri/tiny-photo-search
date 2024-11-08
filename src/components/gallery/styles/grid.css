@@ -1,0 +1,35 @@
+.grid-container {
+    width: 90%;
+    margin: 0 auto;
+    columns: 3 250px;
+    column-gap: 20px;
+    padding: 0 20px;
+    & .grid-item {
+      width: 100%;
+      margin-bottom: 20px;
+      object-fit: cover;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+  }
+  .select-enter {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.select-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.select-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.select-exit-active {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
