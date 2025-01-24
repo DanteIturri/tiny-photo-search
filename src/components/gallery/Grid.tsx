@@ -36,7 +36,8 @@ export const Grid: FC = () => {
           alignItems: 'center',
           gap: '12px',
           marginBottom: '20px',
-          width: '1300px',
+          width: '90%',
+          padding: '0 20px',
           margin: '20px auto',
         }}
       >
