@@ -1,4 +1,4 @@
-import React, { useEffect, useState, type FC } from 'react';
+import React, { useEffect, useRef, useState, type FC } from 'react';
 import { useFetchImages } from '../../hook/useFetchUnsplash';
 import  useInfiniteScroll  from '../../hook/useInfiniteScroll'
 import { CSSTransition } from 'react-transition-group';
@@ -27,6 +27,8 @@ export const Grid: FC = () => {
     setSearchValue(value);
   };
 
+    const selectRef = useRef<HTMLDivElement>(null);
+
   return (
     <>
       <div
@@ -47,11 +49,14 @@ export const Grid: FC = () => {
           timeout={300}
           classNames="select"
           unmountOnExit // Desmonta el componente cuando no está visible
+          nodeRef={selectRef} // Referencia al nodo del DOM
         >
-          <Select
-            handleOrientationChange={handleOrientationChange}
-            options={['HORIZONTAL', 'VERTICAL']}
-          />
+          <div ref={selectRef} style={{ width: '100%' }}>
+            <Select
+              handleOrientationChange={handleOrientationChange}
+              options={['HORIZONTAL', 'VERTICAL']}
+            />
+          </div>
         </CSSTransition>
       </div>
       <div className="grid-container">

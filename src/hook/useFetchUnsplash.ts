@@ -33,6 +33,7 @@ export const useFetchImages = (): UseFetchImagesReturn => {
 
   const fetchImages = useCallback(async () => {
     const key = `client_id=${import.meta.env.PUBLIC_API_KEY_UNSPLASH}`;
+    console.log(key);
     let route = `https://api.unsplash.com/photos?page=${page}&per_page=12&${key}`;
 
     if (input !== '') {
