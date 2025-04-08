@@ -1,0 +1,91 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-container {
+  position: relative;
+  max-width: 90%;
+  max-height: 90vh;
+  background: transparent;
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
+}
+
+.modal-overlay.show .modal-container {
+  transform: scale(1);
+}
+
+.modal-body {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+  min-height: 200px; /* Altura mínima para que se vea bien el loader */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-body img {
+  display: block;
+  width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+  cursor: pointer; /* Indica que se puede hacer clic */
+  transition: filter 0.2s ease;
+}
+
+.modal-body img:hover {
+  filter: brightness(1.05);
+  cursor: pointer;
+}
+
+.modal-body img.hidden {
+  display: none;
+}
+
+.close-btn {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 36px;
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.2s ease;
+}
+
+.close-btn:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .modal-container {
+    max-width: 95%;
+  }
+  
+  .close-btn {
+    top: -35px;
+    right: 0;
+    font-size: 30px;
+  }
+}
