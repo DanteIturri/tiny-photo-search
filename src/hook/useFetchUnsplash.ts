@@ -33,37 +33,32 @@ export const useFetchImages = (): UseFetchImagesReturn => {
 
   const fetchImages = useCallback(async () => {
     const key = `client_id=CrXna0ff2HovF9SGDGufGknkot5tojdyFOINCLhmFN8`;
-    console.log(key);
     let route = `https://api.unsplash.com/photos?page=${page}&per_page=12&${key}`;
 
     if (input !== '') {
       route = `https://api.unsplash.com/search/photos?query=${encodeURI(input)}&${key}&per_page=12&page=${page}`;
       if (orientation !== '' && orientation !== 'Todas') {
-        console.log('entro aquí');
         route += `&orientation=${orientation}`;
-        console.log(route);
       }
     }
 
     setLoading(true);
 
     try {
-      console.log('route', route);
       const res = await fetch(route);
       const data = await res.json();
 
       if (data.results) {
-        console.log('entro a data.results');
         setImages(prevImages => [...prevImages, ...data.results]); // Agregar nuevas imágenes a las existentes
         setHasMore(data.results && data.results.length > 0);
       } else {
-        console.log('entro aquí');
         // setImages([]);
         setImages(prevImages => [...prevImages, ...data]); // Para la respuesta de fotos
         setHasMore(data && data.length > 0);
       }
 
-       // Verificar si hay más imágenes
+      // Verificar si hay más imágenes
+; // Log the fetched images for debugging
     } catch (error) {
       console.error('Error fetching images:', error);
     } finally {
