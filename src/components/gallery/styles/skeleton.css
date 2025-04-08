@@ -1,0 +1,20 @@
+.skeleton-pulse {
+  display: block;
+  background: linear-gradient(
+    90deg,
+    rgba(220, 220, 220, 0.7) 25%,
+    rgba(240, 240, 240, 0.9) 50%,
+    rgba(220, 220, 220, 0.7) 75%
+  );
+  background-size: 200% 100%;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: -200% 0%;
+  }
+}

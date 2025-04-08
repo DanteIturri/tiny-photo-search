@@ -8,6 +8,7 @@ import { Card } from './Card';
 import { Loading } from './Loading';
 import { Form } from './Form';
 import { Select } from './Select';
+import { Skeleton } from './Skeleton';
 // Styles
 import './styles/grid.css';
 
@@ -62,7 +63,7 @@ export const Grid: FC = () => {
       <div className="grid-container">
         {images.map((img, index) => (
           <div key={index} className="grid-item">
-            <Suspense fallback={<Loading />}>
+            <Suspense fallback={<Skeleton height="300px" />}>
               <Card
                 url={img.urls.regular}
                 description={img.alt_description}
