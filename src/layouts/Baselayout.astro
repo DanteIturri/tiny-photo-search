@@ -3,6 +3,22 @@ import Header from '../components/header.astro';
 import Footer from '../components/fotter.astro';
 
 import '../styles/global.css';
+
+// Props para personalizar las meta etiquetas
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  url?: string;
+}
+
+// Valores por defecto
+const {
+  title = "TINY PHOTO SEARCH",
+  description = "Busca y descarga fotos de alta calidad",
+  image = "/open-graph-image.png", // Imagen por defecto para compartir
+  url = Astro.url.href,
+} = Astro.props;
 ---
 <html lang="es">
     <head>
@@ -10,10 +26,31 @@ import '../styles/global.css';
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
+        <meta name="description" content={description} />
+        
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={url} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={new URL(image, Astro.url)} />
+        <meta property="og:image:alt" content={description} />
+        
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content={url} />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={new URL(image, Astro.url)} />
+        <meta name="twitter:image:alt" content={description} />
+        
+        <!-- Canonical URL -->
+        <link rel="canonical" href={url} />
+        
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
-        <title>TINI PHOTO SEARCH</title>
+        <title>{title}</title>
     </head>
     <body>
         <Header />

@@ -1,8 +1,17 @@
 ---
 import BaseLayout from '../layouts/Baselayout.astro';
 import Main from '../components/main.astro';
+
+// Metadatos personalizados para la página principal
+const pageTitle = "TINY PHOTO SEARCH | Encuentra imágenes increíbles";
+const pageDescription = "Busca y descarga fotos de alta calidad para tus proyectos. Galería de imágenes gratuitas y de alta resolución.";
+const pageImage = "/images/open-graph-image.jpg";
 ---
 
-<BaseLayout>
+<BaseLayout 
+  title={pageTitle}
+  description={pageDescription}
+  image={pageImage}
+>
   <Main />
 </BaseLayout>
