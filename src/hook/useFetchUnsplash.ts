@@ -32,7 +32,7 @@ export const useFetchImages = (): UseFetchImagesReturn => {
   const [hasMore, setHasMore] = useState<boolean>(true); // Estado para saber si hay más imágenes
 
   const fetchImages = useCallback(async () => {
-    const key = 'client_id=CrXna0ff2HovF9SGDGufGknkot5tojdyFOINCLhmFN8';
+    const key = `client_id=${import.meta.env.PUBLIC_API_KEY_UNSPLASH}`;
     let route = `https://api.unsplash.com/photos?page=${page}&per_page=12&${key}`;
 
     if (input !== '') {

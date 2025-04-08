@@ -1,16 +1,18 @@
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { getFirestore } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAZrX8zJSqUSOmJxW3e-qy_VUP62nQu6FU",
-  authDomain: "tiny-search-d3a52.firebaseapp.com",
-  projectId: "tiny-search-d3a52",
-  storageBucket: "tiny-search-d3a52.appspot.com",
-  messagingSenderId: "548768957094",
-  appId: "1:548768957094:web:978d8dfd278cb827192a67",
-  measurementId: "G-R7XDFN2WC3"
+  apiKey: import.meta.env.PUBLIC_API_KEY,
+  authDomain: import.meta.env.PUBLIC_AUTH_DOMAIN,
+  projectId: import.meta.env.PUBLIC_PROJECT_ID,
+  storageBucket: import.meta.env.PUBLIC_STORAGE_BUCKET,
+  messagingSenderId:import.meta.env.PUBLIC_MESSAGING_SENDER_ID,
+  appId: import.meta.env.PUBLIC_APP_ID,
+  measurementId: import.meta.env.PUBLIC_MEASUREMENT_ID,
 };
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+export const db = getFirestore(app);
+export const auth = getAuth(app);
