@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, type FC } from 'react';
+import React, { Suspense, useEffect, useRef, useState, type FC } from 'react';
 import { useFetchImages } from '../../hook/useFetchUnsplash';
 import  useInfiniteScroll  from '../../hook/useInfiniteScroll'
 import { CSSTransition } from 'react-transition-group';
@@ -62,13 +62,15 @@ export const Grid: FC = () => {
       <div className="grid-container">
         {images.map((img, index) => (
           <div key={index} className="grid-item">
-            <Card
-              url={img.urls.regular}
-              description={img.alt_description}
-              name={img.user.name}
-              id={img.id}
-              urlFull={img.urls.full}
-            />
+            <Suspense fallback={<Loading />}>
+              <Card
+                url={img.urls.regular}
+                description={img.alt_description}
+                name={img.user.name}
+                id={img.id}
+                urlFull={img.urls.full}
+              />
+            </Suspense>
           </div>
         ))}
       </div>
